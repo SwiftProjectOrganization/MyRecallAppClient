@@ -27,22 +27,19 @@ struct PerformJSONBackup: View {
   @State private var greeting: String = "Hello, Stranger!"
   @State private var name: String = "Stranger"
   @State private var greet: String = "Hi there"
+  
   let client: any APIProtocol
   init(client: any APIProtocol) { self.client = client }
   init() {
-      // By default, make live network calls.
-      self.init(
-        client: Client(serverURL: URL(string: "http://192.168.68.84:8080/api")!,
-                       transport: URLSessionTransport())
-      )
+    // By default, make live network calls.
+    self.init(
+      client: Client(serverURL: URL(string: "http://192.168.68.84:8080/api")!,
+                     transport: URLSessionTransport())
+    )
   }
-  func updateGreeting() async {
-    do {
-      let response = try await client.getGreeting(
-        query: .init(name: greet + ":" + name))
-      greeting = try response.ok.body.json.message
-    } catch { greeting = "Error: \(error.localizedDescription)" }
-  }
+}
+
+extension PerformJSONBackup {
   var body: some View {
     VStack {
       Image(systemName: "globe").imageScale(.large)
@@ -64,15 +61,12 @@ struct PerformJSONBackup: View {
   }
 }
 
-// A mock client used in previews and tests to avoid making live network calls.
-struct MockClient: APIProtocol {
-  func getGreeting(_ input: Operations.GetGreeting.Input) async throws -> Operations.GetGreeting.Output {
-    let name = input.query.name ?? "Stranger"
-    return .ok(.init(body: .json(.init(message: "(Mock) Hello, \(name)!"))))
+extension PerformJSONBackup {
+  func updateGreeting() async {
+    do {
+      let response = try await client.getGreeting(
+        query: .init(name: greet + ":" + name))
+      greeting = try response.ok.body.json.message
+    } catch { greeting = "Error: \(error.localizedDescription)" }
   }
-}
-
-#Preview {
-  // Use the mock client in previews instead of live network calls.
-  PerformJSONBackup(client: MockClient())
 }
