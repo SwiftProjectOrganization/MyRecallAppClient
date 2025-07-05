@@ -24,16 +24,17 @@ import OpenAPIURLSession
 /// appropriate in previews and tests.
 
 struct PerformJSONBackup: View {
-  @State private var greeting: String = "Hello, Stranger!"
-  @State private var name: String = "Stranger"
-  @State private var greet: String = "Hi there"
+  @State private var result: String = "No result yet!"
+  @State private var user: String = "Rob"
+  @State private var topic: String = "BioChemistry"
+  @State private var content: String = testString
   
   let client: any APIProtocol
   init(client: any APIProtocol) { self.client = client }
   init() {
     // By default, make live network calls.
     self.init(
-      client: Client(serverURL: URL(string: "http://192.168.68.84:8080/api")!,
+      client: Client(serverURL: URL(string: "http://192.168.68.85:8080/api")!,
                      transport: URLSessionTransport())
     )
   }
@@ -43,30 +44,38 @@ extension PerformJSONBackup {
   var body: some View {
     VStack {
       Image(systemName: "globe").imageScale(.large)
-      Text(greeting).accessibilityIdentifier("greeting-label")
+      Text(result)
+        .accessibilityIdentifier("result-label")
       Spacer()
-      Text("Enter a greeting:").fontWeight(.bold)
-      TextField("Greet", text: $greet)
+      Text("Enter a topic:").fontWeight(.bold)
+      TextField("Topic", text: $topic)
         .padding(.horizontal)
         .multilineTextAlignment(.center)
       Spacer()
       Text("Enter your name:").fontWeight(.bold)
-      TextField("Name", text: $name)
+      TextField("Name", text: $user)
         .padding(.horizontal)
         .multilineTextAlignment(.center)
       Spacer()
-      Button("Refresh greeting") { Task { await updateGreeting() } }
+      Button("Store topic") { Task { await putJson() } }
     }
     .padding().buttonStyle(.borderedProminent).font(.system(size: 20))
   }
 }
 
 extension PerformJSONBackup {
-  func updateGreeting() async {
+  func putJson() async {
     do {
-      let response = try await client.getGreeting(
-        query: .init(name: greet + ":" + name))
-      greeting = try response.ok.body.json.message
-    } catch { greeting = "Error: \(error.localizedDescription)" }
+      let response = try await client.putJson(
+        query: .init(user: user,
+                     topic: topic,
+                     content: testString))
+      result = try response.ok.body.json.message
+    } catch {
+      result = "Error: \(error.localizedDescription)"
+    }
   }
 }
+
+let testString = "{\"noOfRecallCycles\":0,\"subTopics\":[{\"timeStamps\":[{\"date\":\"2025-02-12T19:38:05Z\"}],\"lastRecallCycle\":\"2025-02-12T19:38:05Z\",\"title\":\"Crisper\",\"questions\":[],\"links\":[],\"includedInRecall\":true,\"noOfRecallCycles\":0},{\"timeStamps\":[{\"date\":\"2025-02-13T14:49:42Z\"}],\"lastRecallCycle\":\"2025-02-13T14:49:42Z\",\"title\":\"Gene therapy\",\"questions\":[],\"links\":[],\"includedInRecall\":true,\"noOfRecallCycles\":0},{\"lastRecallCycle\":\"2025-02-12T19:37:54Z\",\"includedInRecall\":true,\"questions\":[],\"timeStamps\":[{\"date\":\"2025-02-12T19:37:54Z\"}],\"links\":[],\"noOfRecallCycles\":0,\"title\":\"RNA\"},{\"questions\":[{\"noOfRecallCycles\":0,\"lastRecallCycle\":\"2025-02-14T23:27:10Z\",\"title\":\"What is a chromosome?\",\"userAnswer\":\"\",\"answer\":\"A …\",\"links\":[],\"timeStamps\":[{\"date\":\"2025-02-14T23:27:10Z\"}],\"includedInRecall\":true}],\"links\":[],\"title\":\"DNA\",\"noOfRecallCycles\":0,\"timeStamps\":[{\"date\":\"2025-02-12T19:38:13Z\"}],\"includedInRecall\":true,\"lastRecallCycle\":\"2025-02-12T19:38:13Z\"}],\"lastRecallCycle\":\"2025-02-11T21:29:02Z\",\"title\":\"Biochemistry\",\"includedInRecall\":true}"
+

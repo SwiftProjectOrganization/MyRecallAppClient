@@ -6,37 +6,43 @@ servers:
   - url: http://192.168.68.85:8080/api
     description: Rob-Work-M3 service
 paths:
-  /greet:
+  /pjson:
     get:
-      operationId: getGreeting
+      operationId: putJson
       parameters:
-        - name: name
+        - name: user
           required: false
           in: query
-          description: The name used in the returned greeting.
+          description: The user of the topic.
           schema:
             type: string
-        - name: greet
+        - name: topic
           required: false
           in: query
-          description: The greeting used in the returned greeting.
+          description: The topic.
+          schema:
+            type: string
+        - name: content
+          required: false
+          in: query
+          description: The content of the topic.
           schema:
             type: string
       responses:
         '200':
-          description: A success response with a greeting.
+          description: A success response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Greeting'
+                $ref: '#/components/schemas/Json'
 components:
   schemas:
-    Greeting:
+    Json:
       type: object
-      description: A value with the greeting contents.
+      description: A return value.
       properties:
         message:
           type: string
-          description: The string representation of the greeting.
+          description: The string representation of the result.
       required:
         - message
