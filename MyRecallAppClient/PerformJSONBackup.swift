@@ -32,7 +32,6 @@ struct PerformJSONBackup: View {
   let client: any APIProtocol
   init(client: any APIProtocol) { self.client = client }
   init() {
-    // By default, make live network calls.
     self.init(
       client: Client(serverURL: URL(string: "http://192.168.68.85:8080/api")!,
                      transport: URLSessionTransport())
