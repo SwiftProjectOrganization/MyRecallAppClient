@@ -33,7 +33,7 @@ struct PerformJSONBackup: View {
   init(client: any APIProtocol) { self.client = client }
   init() {
     self.init(
-      client: Client(serverURL: URL(string: "http://192.168.68.85:8080/api")!,
+      client: Client(serverURL: URL(string: "http://Rob-Work-M3.local:8080/api")!,
                      transport: URLSessionTransport())
     )
   }
@@ -71,7 +71,7 @@ extension PerformJSONBackup {
                      content: testString))
       result = try response.ok.body.json.message
     } catch {
-      result = "Error: \(error.localizedDescription)"
+      result = "Returned error: \(error.localizedDescription)"
     }
   }
 }
