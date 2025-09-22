@@ -14,4 +14,10 @@
 
 import SwiftUI
 
-@main struct HelloWorldiOSClientApp: App { var body: some Scene { WindowGroup { PerformJSONBackup() } } }
+@main struct MyRecallAppClient: App {
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+    }
+  }
+}

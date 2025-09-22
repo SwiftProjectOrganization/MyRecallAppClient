@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A133CE32B1F28870008DD5E /* MyRecallAppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A133CE22B1F28870008DD5E /* MyRecallAppClient.swift */; };
-		3A133CE52B1F28870008DD5E /* PerformJSONBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A133CE42B1F28870008DD5E /* PerformJSONBackup.swift */; };
+		3A133CE52B1F28870008DD5E /* RemoteJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A133CE42B1F28870008DD5E /* RemoteJson.swift */; };
 		3A133CE72B1F28890008DD5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A133CE62B1F28890008DD5E /* Assets.xcassets */; };
 		3A133CEA2B1F28890008DD5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A133CE92B1F28890008DD5E /* Preview Assets.xcassets */; };
 		3A133CF42B1F28890008DD5E /* HelloWorldiOSClientAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A133CF32B1F28890008DD5E /* HelloWorldiOSClientAppTests.swift */; };
@@ -17,6 +17,7 @@
 		D4A275B82E08428700139931 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = D4A275B72E08428700139931 /* OpenAPIURLSession */; };
 		D4B289212DFA1840002BBB1A /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D4B2891F2DFA1840002BBB1A /* openapi.yaml */; };
 		D4B289222DFA1840002BBB1A /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D4B289202DFA1840002BBB1A /* openapi-generator-config.yaml */; };
+		D4E437632E7C897C000C6834 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E437622E7C897C000C6834 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 /* Begin PBXFileReference section */
 		3A133CDF2B1F28870008DD5E /* MyRecallAppClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecallAppClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A133CE22B1F28870008DD5E /* MyRecallAppClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecallAppClient.swift; sourceTree = "<group>"; };
-		3A133CE42B1F28870008DD5E /* PerformJSONBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformJSONBackup.swift; sourceTree = "<group>"; };
+		3A133CE42B1F28870008DD5E /* RemoteJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteJson.swift; sourceTree = "<group>"; };
 		3A133CE62B1F28890008DD5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A133CE92B1F28890008DD5E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3A133CEF2B1F28890008DD5E /* MyRecallAppClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRecallAppClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +51,7 @@
 		3A3779832B1F34FC00F72DF5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D4B2891F2DFA1840002BBB1A /* openapi.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
 		D4B289202DFA1840002BBB1A /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
+		D4E437622E7C897C000C6834 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				3A133CE22B1F28870008DD5E /* MyRecallAppClient.swift */,
-				3A133CE42B1F28870008DD5E /* PerformJSONBackup.swift */,
+				3A133CE42B1F28870008DD5E /* RemoteJson.swift */,
+				D4E437622E7C897C000C6834 /* ContentView.swift */,
 				3A133CE62B1F28890008DD5E /* Assets.xcassets */,
 				3A133CE82B1F28890008DD5E /* Preview Content */,
 			);
@@ -280,8 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A133CE52B1F28870008DD5E /* PerformJSONBackup.swift in Sources */,
+				3A133CE52B1F28870008DD5E /* RemoteJson.swift in Sources */,
 				3A133CE32B1F28870008DD5E /* MyRecallAppClient.swift in Sources */,
+				D4E437632E7C897C000C6834 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -380,6 +384,7 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -427,13 +432,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -454,7 +460,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.HelloWorldiOSClientApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -484,7 +490,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,7 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.HelloWorldiOSClientApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
